@@ -5,13 +5,16 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
+  encoding: utf8
   pool: 5
-  timeout: 5000
+  username: root
+  password:
+  host: localhost
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: tasklist_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -24,6 +27,6 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: message-board_production
-  username: message-board
+  database: tasklist_production
+  username: tasklist
   password: <%= ENV['MESSAGE-BOARD_DATABASE_PASSWORD'] %>
