@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :require_user_logged_in
-  before_action :find_tasks, only: [:show,:edit,:update]
+  before_action :find_tasks, only: [:show,:edit,:update,:destroy]
   
   def index
     #@tasks = Task.all
@@ -49,7 +49,7 @@ class TasksController < ApplicationController
   end
   
   def destroy 
-    @task = Task.find(params[:id])
+    #@task = Task.find(params[:id])
     
     @task.destroy
     flash[:success] = "taskが正常に削除されました。"
